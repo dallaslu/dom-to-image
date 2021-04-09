@@ -193,7 +193,7 @@
 
         function cloneChildren(original, clone, filter) {
             var children = original.childNodes;
-            if (children.length === 0) return Promise.resolve(clone);
+            if (original instanceof HTMLCanvasElement || children.length === 0) return Promise.resolve(clone);
 
             return cloneChildrenInOrder(clone, util.asArray(children), filter)
                 .then(function () {
